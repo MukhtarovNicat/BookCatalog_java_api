@@ -31,12 +31,12 @@ public class BookController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<BookResponse> getById(UUID id){
+    public ResponseEntity<BookResponse> getById(@PathVariable UUID id){
         return ResponseEntity.ok(bookService.getBookById(id));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteBook(UUID id){
+    public ResponseEntity<Void> deleteBook(@PathVariable UUID id){
         bookService.deleteBook(id);
         return  ResponseEntity.noContent().build();
     }
